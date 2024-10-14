@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}  <!-- Aquí se extiende el archivo layout.html -->
+{% block title %}Historial{% endblock %}
+{% block historial %}
+<div class="container">
+    <table class="table table-striped">
+        <h2>Historial de Partidas</h2>
+        <thead>
+            <tr>
+                <th scope="col">Nombre Partida</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Código Sala</th>
+                <th scope="col">Código Acceso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for partida in partidas %}
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="unirsePartida('{{ partida.id }}')">Unirse</button>
+                    <button type="button" class="btn btn-danger" onclick="eliminarPartida('{{ partida.id }}')">Eliminar</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

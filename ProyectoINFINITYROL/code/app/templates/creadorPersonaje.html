@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}  <!-- Aquí se extiende el archivo layout.html -->
+{% block title %}Creador de Personajes{% endblock %}
+
+{% block content%}  <!-- Aquí se carga el contenido de la página de inicio, usando el bloque content -->
+<div class="container">
+    <div >
+        <h2>Crea tu personaje</h2>
+        <div class="form-group">
+            <label for="avatar">Carga tu avatar:</label>
+            <input type="file" class="form-control-file" id="avatar" name="avatar">
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="nombreReal">Nombre Real:</label>
+                <input type="text" class="form-control" id="nombre" name="nombreReal" required>
+                <label for="nombrePersonaje">Nombre Personaje:</label>
+                <input type="text" class="form-control" id="nombre" name="nombrePersonaje" required>
+
+                <!--equipamiento -->
+                <!--peto, guantes, botas, casco, capa, 1 arma-->
+                <div class="container">
+\                    <form>
+                        <div class="form-group">
+                            <label for="raza">Raza:</label>
+                            <select class="form-control" id="raza">
+                                <option value="">Selecciona una raza</option>
+                                
+                            </select>
+                            <p id="razaDescripcion"></p>
+                        </div>
+    
+    
+                        <div class="form-group">
+                            <label for="profesion">Profesión:</label>
+                            <select class="form-control" id="profesion">
+                                <option value="">Selecciona una profesión</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="habilidades">Habilidades:</label>
+                            <select class="form-control" id="habilidades">
+                                <option value="">Selecciona una habilidad</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="poderes">Poderes:</label>
+                            <select class="form-control" id="poderes">
+                                <option value="">Selecciona un poder</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="armas">Armas:</label>
+                            <select class="form-control" id="armas">
+                                <option value="">Selecciona un arma</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Pechera">Pechera:</label>
+                            <select class="form-control" id="armaduras">
+                                <option value="">Selecciona una pechera</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Casco">Casco:</label>
+                            <select class="form-control" id="armaduras">
+                                <option value="">Selecciona un casco</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Pantalón">Pantalón:</label>
+                            <select class="form-control" id="armaduras">
+                                <option value="">Selecciona un pantalón</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Botas">Botas:</label>
+                            <select class="form-control" id="armaduras">
+                                <option value="">Selecciona unas botas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Guantes">Guantes:</label>
+                            <select class="form-control" id="armaduras">
+                                <option value="">Selecciona unos guantes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Capa">Capa:</label>
+                            <select class="form-control" id="armaduras">
+                                <option value="">Selecciona una capa</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear personaje</button>
+                    </form>
+                </div>
+                 
+            </div>
+    </div>
+</div>
+{% endblock %}      <!-- Aquí se cierra el bloque  -->

@@ -1,0 +1,149 @@
+{% extends 'layout.html' %}  <!-- Aquí se extiende el archivo layout.html -->
+{% block title %}Login{% endblock %}
+
+{% block content%}  <!-- Aquí se carga el contenido de la página de inicio, usando el bloque content -->
+<div class="wrapper">
+    <form action="" id="form-inicio">
+        <h1>Inicio de Sesion</h1>
+        <div class="input-box">
+            <input type="text" placeholder="Usuario" id="usuario" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Contraseña" id="contraseña" required>
+            <i class='bx bxs-lock'></i>
+        </div>  
+        <div class="recuerda-olvida">
+            <label><input type="checkbox" id="recuerdame">Recuerdame</label>
+            <a href="#" id="contraseña-olv-link">¿Olvidaste tu Contraseña?</a>
+        </div>  
+        <button type="submit" class="boton">Iniciar Sesion</button>
+        <p id="error-message" style="color:red;"></p>
+        <div id="cargando" style="display: none;">Cargando...</div>
+        <div class="link-registro">
+            <p>¿No tienes Cuenta?<a href="#" id="link-registro"> Registrate</a></p>
+        </div>
+    </form>
+    
+    <form id="form-registro" style="display: none;">
+        <button class='bx bx-arrow-back volver-inicio' id="boton-volver-reg">Volver</button>
+        <h1>Registro</h1>
+        <div class="input-box">
+            <input type="text" placeholder="Nombre de Usuario" id="usuario-registro" required>
+            <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+            <input type="text" placeholder="Correo Electronico" id="correo-registro" required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Contraseña" id="contraseña-registro" required>
+            <i class="bx bxs-lock"></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Confirmar Contraseña" id="confirmar-contraseña" required>
+            <i class="bx bxs-lock"></i>
+        </div>
+        <div class="terminos-check">
+            <label><input type="checkbox"  required> Acepto los <a href="#" id="terminos-link">Terminos de uso y Condiciones</a></label>
+            <label><input type="checkbox" required> Acepto la <a href="#" id="privacidad-link">Politica de Privacidad</a></label>
+        </div>
+        <div>
+            <button type="submit" class="boton">Registrarse</button>
+        </div>  
+      
+    </form>
+
+    <form id="contraseña-olvidada" style="display: none;">
+        <button class='bx bx-arrow-back volver-inicio' id="boton-volver-con">Volver</button>
+        <strong><p class="comentario">Introduce el correo electronico con el que te registraste previamente: </p></strong>
+        <div class="input-box">
+            <input type="text" placeholder="Correo Electronico" id="correo-contraseña-olvidada" required>
+            <i class='bx bxs-envelope'></i>
+        </div>
+        <button type="submit" class="boton">Recuperar Contraseña</button>
+        <p style="display: none;">Correo Enviado</p>
+    </form>
+</div>
+
+<div class="modal fade" id="terminos" tabindex="-1" aria-labelledby="terminosLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="terminosLabel">TERMINOS DE USO Y CONDICIONES</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body mt-4">
+                <p><strong>Terminos de uso y condiciones INFINITY ROL</strong></p>
+                <p>
+                    'Por medio del presente documento, Infinity ROL pone a disposición de sus usuarios su Política de Privacidad, la cual se encuentra en armonía con la normativa vigente sobre Protección de Datos Personales (Ley N° 19.628). A continuación, se señalan las finalidades del tratamiento de la información que nos puedas suministrar, quiénes son los encargados de tratarla, el tiempo de almacenamiento en nuestros bancos de datos, las medidas de seguridad y los medios para ejercer tus derechos como titular de los Datos Personales.
+                </p>
+                    <p>
+                        <p><strong> A. ¿De quiénes recopilamos información?</strong></p>
+                        Si eres usuario, recolectamos la información que nos proporcionas voluntariamente a través del formulario de contacto, u otro medio por el cual te comuniques, incluyendo nombre, apellido, correo electrónico y teléfono, que resulta necesaria para contactarnos contigo y cumplir con los fines que se detallan más adelante.
+                        En caso de manifestar un usuario que no desea recibir dicha información, sus datos personales serán almacenados en nuestro banco de “Usuarios” únicamente con la finalidad de, y por el tiempo necesario para atender sus requerimientos, tales como cotizaciones, consultas varias, sugerencias, entre otros.
+                        Si eres cliente, recopilamos datos de identificación y de contacto que pedimos en nuestros formularios web y/o en nuestras órdenes de trabajo, así como en los demás documentos necesarios para cumplir con nuestras obligaciones legales y contractuales, incluyendo aquellas previstas en el Ley N°19.496, Ley de Protección de los Derechos de los Consumidores. Tanto si eres cliente como si vienes en representación de alguno, tus datos serán ingresados a nuestro banco de “Clientes”.
+                    </p>
+                    <p>
+                        <p><strong>B. ¿Cómo protegemos tu información?</strong></p>
+                        Infinity ROL ha adoptado todas las medidas técnicas, legales y organizacionales necesarias para garantizar la seguridad y el adecuado procesamiento de tus datos personales; así como para evitar cualquier manipulación indebida, pérdida accidental, destrucción o acceso no autorizado de terceros.
+                        Tu información no será jamás vendida ni comercializada, ni utilizada para fines ajenos a los que se describen a continuación. En cualquier caso, Infinity ROL ha adoptado medidas razonables para garantizar la conservación de la información únicamente durante el tiempo necesario para la finalidad con que se recopiló, para su procesamiento, o más tiempo si se exige en virtud de un contrato o legislación aplicable, o para fines estadísticos.
+                    </p>
+                    <p>
+                        <p><strong>C. ¿Con qué finalidad utilizamos tu información?</strong></p>
+                        Si nos has contactado por la página web para realizar consultas o sugerencias, tus datos personales serán utilizados para: (i) remitir a tu correo electrónico o teléfono la información que nos has solicitado sobre los productos ofrecidos por Infinity ROL, así como (ii) dar trámite a tus consultas, solicitudes, sugerencias, reclamos o quejas.
+                        Si eres es cliente, tus datos personales serán utilizados para: (i) procesar la prestación del servicio; (ii) establecer un canal de comunicación respecto del envío del servicio adquirido u otras condiciones relacionadas a nuestras prestaciones; (iii) realizar gestiones de cobranza; (iv) contactarte en caso de que hubiera sugerencias, preguntas, quejas o reclamos; y (v) dar cumplimiento a todas las demás obligaciones legales y contractuales de Infinity ROL.
+                        Asimismo, al enviar tus datos mediante el formulario de contacto autorizas a incorporarlos en nuestro banco de “Prospección comercial”, para las siguientes finalidades: (i) contactarte y enviarte información sobre productos y otros complementarios que pudieran ser de su interés; (ii) comunicar sobre promociones, beneficios, concursos, ofertas; (iii) hacer seguimiento a tus cotizaciones; y, (iv) en general, realizar publicidad y prospección comercial. Asimismo, podremos contactarte para realizar encuestas de satisfacción, análisis de consumo, preferencias y tendencias de mercado. En todo caso, se hace presente que, en cualquier momento, los usuarios o clientes podrán solicitar la suspensión del envío de las comunicaciones publicitarias o comerciales, de conformidad al artículo 28 B de la Ley 19.496.
+                    </p>
+                    <p>
+                        <p><strong>D. ¿Quién tiene acceso a tu información?</strong></p>
+                        Infinity ROL no podrá vender, bajo ningún concepto, los datos personales recopilados en el ejercicio de su actividad. Solo podrá ponerla a disposición de un tercero únicamente para cumplir los fines establecidos en esta Política, siempre suscribiendo contratos de confidencialidad que garanticen la privacidad de los datos involucrados, para que no sean usados con otros fines que estos, ni vendidos a terceros.
+                    </p>
+                    <p>
+                        <p><strong>E. ¿Cómo puedes ejercer tus derechos como titular de Datos Personales?</strong></p>
+                        Infinity ROL reconoce y garantiza el ejercicio de los derechos de acceso, rectificación, cancelación, oposición y demás previstos en la Ley N°19.628. Para ejercer los derechos antes mencionados puedes remitir una comunicación al correo electrónico contacto@infinityrol.cl o enviar una carta a General del Canto N°50, Of.301, Providencia, Región Metropolitana. En caso de que Infinity ROL no responda a las solicitudes en un tiempo prudente o las deniegue, los titulares de los datos tienen el derecho a recurrir ante los tribunales de justicia correspondientes.
+                    </p>
+                    <p>
+                        <p><strong>F. ¿Qué herramientas de navegación se utilizan en la página web de Infinity ROL?</strong></p>
+                        Como toda página web, Infinity ROL puede usar herramientas de recopilación de información como las cookies para recolectar cierta información con fines estadísticos mientras navegas por nuestra página web. En esta sección, describimos los tipos de información que Infinity ROL puede colectar y cómo puede usar esta información.
+                        a) Dirección IP: una dirección de Protocolo de Internet (IP por sus siglas en inglés) es un número que se genera automáticamente de tu computador cuando navegas en la web. Tu dirección IP es usada para recopilar información demográfica, es decir, para saber de qué parte del mundo vienen las visitas a la página web. Infinity ROL puede recopilar la dirección IP con el fin de identificar el volumen de uso de la página web.
+                        b) Cookies: podremos ubicar un archivo de texto llamado “cookie” en los archivos del navegador de tu computadora. Una cookie es un pequeño archivo de datos que se almacena en tu disco duro para el mantenimiento de registros cuando los visita. Podemos usar las cookies para distintas finalidades, que incluyen entender y guardar las preferencias del usuario para futuras visitas, y actualizar nuestro sitio web basados en información como el número de visitantes y las páginas vistas. Puedes escoger que tu computador te avise cada vez que se le envía una cookie, o puedes optar por apagar todas las cookies. Puedes hacerlo a través de las herramientas de tu buscador explorador (Ej. Google Chrome, Firefox, Edge). Cada explorador es distinto, por lo cual te recomendamos buscar en la sección de Ayuda de su menú para aprender acerca de la manera correcta de modificar sus cookies. No se requiere tener las cookies activadas para usar nuestra página web.
+                    </p>
+                    <p>
+                        <p><strong>G. Actualizaciones de la presente política de privacidad</strong></p>
+                        Con motivo de la mejora continua de nuestros procesos, Infinity ROL podrá realizar correcciones y actualizaciones a esta Política de Privacidad.'
+                    </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="privacidad" tabindex="-1" aria-labelledby="privacidadLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="privacidadLabel">POLITICA DE PRIVACIDAD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+            </div>
+            <div class="modal-body mt-4">
+                <p><strong>Politica de privacidad INFINITY ROL</strong></p>
+                <p>
+                    <p> NO PODEMOS GARANTIZAR TU PRIVACIDAD, ES UN PROTOTIPO</p>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}      <!-- Aquí se cierra el bloque  -->

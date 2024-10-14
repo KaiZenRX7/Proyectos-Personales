@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title> <!-- Aquí se carga el título de la página, usando el bloque title -->
+<!-- Aquí se carga el archivo CSS -->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body class="container-fluid">
+    <header>    
+        <div class="row">
+            <div>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <!-- imagen y titulo para la nav-->
+                    <img src="{{ url_for('static', filename='img/logo-infinityrol.jpg') }}" alt="Logo" class="img-fluid">
+
+                    <a class="nav-link {% if request.endpoint == 'index' %}active{% endif %}" id="v-pills-index" href="{{ url_for('index') }}" role="tab" aria-controls="v-pills-index" aria-selected="true">
+                        <i class="fa-solid fa-house"></i> <span>Inicio</span>
+                    </a>
+                    </a>
+                    <a class="nav-link {% if request.endpoint == 'login' %}active{% endif %}" id="v-pills-login" href="{{ url_for('login') }}" role="tab" aria-controls="v-pills-login" aria-selected="false">
+                        <i class="fa-solid fa-user"></i> <span>Inicio de sesión</span>
+                    </a>
+                    <a class="nav-link {% if request.endpoint == 'plataformaJuego' %}active{% endif %}" id="v-pills-partida" href="{{ url_for('plataformaJuego') }}" role="tab" aria-controls="v-pills-partida" aria-selected="false">
+                        <i class="fa-solid fa-dice"></i> <span>Plataforma de Juego</span>
+                    </a>
+                    <a class="nav-link {% if request.endpoint == 'creadorPersonaje' %}active{% endif %}" id="v-pills-creador" href="{{ url_for('creadorPersonaje') }}" role="tab" aria-controls="v-pills-creador" aria-selected="false">
+                        <i class="fa-solid fa-people-pulling"></i> <span>Creador de personajes</span>
+                    </a>
+
+                    <a class="nav-link {% if request.endpoint == 'creadorObjetos' %}active{% endif %}" id="v-pills-objetos" href="{{ url_for('creadorObjetos') }}" role="tab" aria-controls="v-pills-objetos" aria-selected="false">
+                        <i class="fa-solid fa-box"></i> <span>Creador de objetos</span>
+                    </a>
+
+                    <a class="nav-link {% if request.endpoint == 'dados' %}active{% endif %}" id="v-pills-dados" href="{{ url_for('dados') }}" role="tab" aria-controls="v-pills-dados" aria-selected="false">
+                        <i class="fa-solid fa-dice"></i> <span>Dados</span>
+                    </a>
+                    <br>
+
+
+                    <div>
+                        <img class="logoBug" src="{{ url_for('static', filename='img/logo2.png') }}" alt="Logo Bugsbusters">
+                        <p>&copy; 2024 INACAP. BUGSBUSTERS.
+                            <i class="fa-solid fa-bug"></i>
+                        </p>
+                    </div>	
+                </div>
+
+            </div>
+                <div>
+                    <main>
+                        <div >
+                            {% block content %}{% endblock %} <!-- Aquí se carga el contenido de la página, usando el bloque content -->
+                        </div>
+                        <div class="container">
+                            <h1>{% block body %}{% endblock %}</h1> <!-- Aquí se carga el título de la página, usando el bloque body -->
+                        </div>
+                        
+                    </main>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+
+    <footer>
+
+        </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0a42890f20.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    {% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dynamic_selects.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script_partida.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script_dados.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    {% endblock %}
+
+
+
+
+</body>
+</html>
