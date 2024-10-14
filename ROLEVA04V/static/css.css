@@ -1,0 +1,274 @@
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background: url(img/168595-space-stars.jpg);
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-repeat: round;
+    cursor: default;
+}
+
+.panel-transparente{
+    background: transparent;
+
+}
+
+.sub-banner{
+   background: linear-gradient(to right, rgb(22, 22, 22), rgb(0, 19, 144));
+   background-clip: text;
+   color: transparent;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.wrapper h1, h2, p {
+  
+    color: #1909fc;
+}
+
+
+.contenido-imagen {
+    background: url(img/Star-Wars-Outlaws-banner.jpeg) no-repeat center center;
+    text-align: center;
+    background-size: cover;
+    color: white;
+    height: 750px;
+    width: 100%;
+    max-width: 1400px;
+    border-radius: 10px;
+    margin: 0 auto;
+    top: 100px;
+    box-shadow: 5px 5px 5px rgb(14, 52, 206) ;
+    margin-top: 0%;
+}
+
+.contenido-imagen button {
+    position: relative;
+    top: 500px;
+    margin-left: 10px;
+}
+
+
+.metricas-tabla{
+    background: linear-gradient(to top, rgba(244, 255, 149, 0.973), rgb(7, 7, 236));
+    color: white;
+    border-radius: 10px;
+}
+
+.caracteristicas-tabla{
+    background: linear-gradient(to top, rgba(244, 255, 149, 0.973), rgb(7, 7, 236));
+    color: white;
+    border-radius: 10px;
+}
+
+.requisitos-tabla{
+    background: linear-gradient(to top, rgba(244, 255, 149, 0.973), rgb(7, 7, 236));
+    color: white;
+    border-radius: 10px;
+}
+
+
+
+
+.banner-boot{
+    background-color: black;
+}
+
+.texto-banner{
+    background: linear-gradient(to top, rgb(23, 3, 140), rgb(31, 31, 33));
+
+}
+.texto-banner p{
+    color: white;
+
+}
+
+.panel-transparente{ 
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top : 0;
+   border-radius: 10px;
+   backdrop-filter: blur(1px);
+   
+}
+
+.container-tit{
+    background: linear-gradient(to top, rgb(17, 0, 111), rgb(27, 27, 27));
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 5px 5px 0px rgba(24, 24, 237, 0.694);
+    height: 165px;
+    
+}
+
+.container-tit h1{
+    -webkit-text-fill-color: #002a96;
+    -webkit-text-stroke: 3px #ffffff;
+    text-align: center;
+    margin-top: 1%;
+}
+
+.container-tit img{
+    position:absolute;
+    width: 100px;
+    margin-top: 0%;
+    margin-left: 15%;
+    box-shadow: 3px 3px 0px rgb(15, 14, 14);
+   
+}
+
+.container-tit button{
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to top, rgb(17, 0, 111), rgb(27, 27, 27));
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.my-5 h2{
+    -webkit-text-fill-color: #002a96;
+    -webkit-text-stroke: 1px #ffffff;
+    background: linear-gradient(to top, rgb(17, 0, 111), rgb(27, 27, 27));
+
+}
+
+.container{
+    margin-top: 1%;
+}
+
+.calltoaction-dis{
+    background: url(img/banner-promo.jpg) no-repeat center center;
+    border-radius: 10px;
+    box-shadow: 0px 5px 0px #1909fc;
+    height: 675px;
+    padding: 10px;
+    width: 100%;
+}
+
+.calltoaction-dis button{
+    position: relative;
+    top: 500px;
+    margin-left: 10px;
+}
+
+
+
+
+.mapa-sitio{
+    margin-left: 0px;
+    background: rgba(24, 4, 243, 0.029);
+    background-size: 100%;
+    width: 20%;
+    height: 400px;
+}
+
+.mapa-sitio ul li:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.mapa-sitio ul li{
+    text-decoration: none;
+}
+
+.redes-copy{
+    max-width: 800px;
+    width: 100%;
+    margin-top: 0%;
+    position: sticky;
+}
+
+.redes-copy a{
+    color: white;
+    text-decoration: none;
+    margin-top: 0px;
+}
+
+.redes-copy p{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.redes-copy p a:hover{
+    text-decoration: none;
+}
+
+.redes-copy i{
+    text-decoration: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+}
+
+.redes-copy img{
+    width: 500px;
+    height: auto;
+    margin-left: 10px;
+    box-shadow: 5px 5px 0px black;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.pie-pag{
+    display: flex;
+    background: linear-gradient(to top, rgba(25, 25, 25, 0.973), rgb(7, 7, 236));
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+
+
+}
+
+.pie-pag p a{
+    color: white;
+    text-decoration: none;
+}
+
+.pie-pag p a:hover{
+    text-decoration: none;
+}
+
+.pie-pag ul li p a{
+    text-decoration: none;
+
+}
+
+.pie-pag button{
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(to top, rgb(17, 0, 111), rgb(27, 27, 27));
+    border-radius: 10px;
+    margin-left: 10px;
+
+}
+
+.pie-pag i{
+    text-decoration: none;
+    color: white;
+    height: 100%;
+    
+}
+
+.text-copy p{
+    color: white;
+    margin-top: 100px;
+    backdrop-filter: blur(10px);
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 20px;
+}
+
+.modal-header img{
+   width: 200px;
+   height: auto;
+   margin-left: 50px;
+}
