@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap");
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(to top, #bc82f7, #5f85e5);
+    background-size: cover;
+    background-position: center;
+}
+
+.app-cont{
+    width: 800px;
+    max-width: 90%;
+    margin: 0 auto;
+    border: 2px solid rgba(12, 12, 12, 0.5);
+    padding: 0 20px;
+    justify-content: center; 
+    text-align: center;
+    top: 0%;
+    cursor: default;
+    box-shadow: 12px 12px 12px rgba(12, 12, 12, 0.5) inset,
+    -12px -12px 12px rgba(12, 12, 12, 0.5) inset;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.app-cont ul{
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn-cont{
+    color: rgb(232, 228, 232);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: auto;
+    padding: 10px 20px;
+    position: relative;
+    background-color: transparent;
+    margin-left: 3px;
+    cursor: pointer;
+    margin-top: 1%;
+    border: 1px solid #cdcdd0;
+}
+
+.btn-cont:active{
+    background-color: #c9f116;
+    color: rgb(236, 12, 12);
+}
+
+.btn-cont:hover{
+    background-color: #000000;
+}
+
+.titulo-bod{
+    font-size: 30px;
+    font-weight: 700;
+    color: transparent;
+    margin-top: 20px;
+    text-align: center;
+    background: linear-gradient(to right, #1c1c1d, #2d1414);
+    background-clip: text;
+}
+
+.info-prod{
+    margin-top: 3%;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.info-prod h2{
+    font-size: 26px;
+}
+
+.inventario-cont{
+    margin-top: 2%;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.inventario-cont h2{
+    font-size: 26px;
+}
+
+.inventario-cont h3{
+    font-size: 20px;
+    margin-top: 1%;
+   
+
+}
+
+.inventario-cont ul{
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.inventario-cont ul li input{
+    margin-top: 1%;
+    box-shadow: #000000;
+    width: 200px;
+}
+
+.inventario-cont ul li select{
+    margin-top: 1%;
+    box-shadow: #000000;
+    width: 200px;;
+}
+
+.inventario-cont ul li{
+    font-size: 15px;
+    margin-top: 2%;
+    text-align: center;
+
+}
+
+.vista-prod{
+    margin-top: 2%;
+    font-size: 18px;
+    
+
+}
+
+.vista-prod h2{
+    font-size: 26px;
+}
+
+.vista-prod ul li{
+    font-size: 15px;
+    margin-top: 1%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
