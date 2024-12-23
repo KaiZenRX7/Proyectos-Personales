@@ -1,0 +1,430 @@
+
+
+/* Estilos generales */
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.didi-h2{
+    background: linear-gradient(to right, #FFD700, #070707);
+    background-clip: text;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+}
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    max-width: 90%;
+    min-height: 100vh;
+    background: url('/static/img/banner.jpg') no-repeat center;
+    background-size: cover ;
+    background-position: center;
+    
+}
+
+
+.wrapper{
+    width: 450px;
+    background-color:transparent ;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    color: #FFD700;
+    border-radius: 10px;
+    padding: 30px 40px ;
+    filter: blur(0.6px);
+    text-align: center;
+    align-items: center;
+}
+.wrapper-large {
+    width: 1000px;
+    background-color:transparent ;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    color: #FFD700;
+    border-radius: 10px;
+    padding: 30px 40px ;
+    filter: blur(0.6px);
+    text-align: center;
+    align-items: center;
+}
+.wrapper-large .checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #050505; ;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: #FFD700;
+    font-size: 18px;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #FFD700;
+}
+
+.wrapper .recuerda-olvida{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.recuerda-olvida label input{
+    accent-color: #FFD700;
+    margin-right: 3px;
+}
+
+.recuerda-olvida a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.recuerda-olvida a:hover {
+    text-decoration: underline;
+
+}
+
+.wrapper .boton{
+   width: 100%;
+   height: 45px;
+   background: #0f0f0f;
+   border: none;
+   outline: none;
+   border-radius: 40px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+   cursor: pointer;
+   font-size: 16px;
+   color:#FFD700;
+   font-weight: 600;
+}
+
+.wrapper .link-registro{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.link-registro p a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-registro p a:hover {
+    text-decoration: underline;
+}
+
+.registro-form{
+    display: none;
+    width: 420px;
+    background-color: #0f0f0f;
+    border: 2px solid #FFD700;
+    color: #FFD700;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+
+.wrapper .volver-inicio{
+    width: 25%;
+    height: 50px;
+    border-color: black;
+    outline: none;
+    border-width: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 1%;
+    background: transparent;
+    color: #FFD700;
+}
+
+.comentario {
+    color: #FFD700;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.modal-content{
+    text-align: justify;
+    overflow: scroll ;
+    height: 600px;
+    width: 500px;
+    background-color: #f7f7f7;
+    border: 2px solid #FFD700;
+   
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover ;
+    background-position: center;
+
+}
+
+.img-fluid {
+   border-radius: 5px;
+
+}
+
+.col-3{
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #ffd9000e;
+    
+}
+
+
+
+.nav-pills{
+    display: flex;
+    
+    background-color: #0f0f0f;
+}
+
+
+
+
+.nav-pills .nav-link.active {
+    color: #FFD700; /* Cambia el color del texto si es necesario */
+}
+
+.nav-pills .nav-link {
+    color: #FFD700; /* Color por defecto para los enlaces */
+}
+
+.nav-pills .nav-link:hover {
+    color: #FFD700; /* Color al pasar el cursor sobre los enlaces */
+}
+
+.nav {
+    display: flex;
+    border-radius: 10px;
+    position: fixed; /* Fija la barra de navegación en la pantalla */
+    top: 0; /* Alinea la barra al borde superior */
+    left: 0; /* Alinea la barra al borde izquierdo */
+    width: 15%; /* Ancho fijo de la barra de navegación */
+    height: 100%; /* Altura completa de la pantalla */
+    background-color: #000000; /* Color de fondo de la barra de navegación */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para darle un efecto de profundidad */
+}
+
+
+.form-group{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ffd9000e;
+    border-radius: 5px;
+    background: transparent;
+    
+}
+
+.form-group input {
+    
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #ff1100; ;
+    font-size: 16px;
+    color: #0f0f0f;
+    padding: 20px 45px 20px 20px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.form-group label{
+    background: transparent;
+    color: #FFD700;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+.text-area-pp textarea{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #ff260085; 
+    border-radius: 40px;
+    font-size: 20px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+    justify-content: center;
+}
+
+
+.form-check label{
+    background: transparent;
+    color: #FFD700;
+    font-size: 18px;
+    border: none;
+    outline: none;
+}
+
+.form-check input {
+    
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #ff1100; ;
+    font-size: 16px;
+    color: #0f0f0f;
+    padding: 20px 45px 20px 20px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.color-th{
+    color: #FFD700;
+    background-color: transparent;
+    border: 2px solid #e90808a6;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin: 10px;
+}
+
+
+.color-tbody{
+    
+    color: #FFD700;
+    background-color: transparent;
+    border: 2px solid #e90808a6;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin: 10px;
+}
+
+
+.Inicio-body{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ffd9000e;
+    border-radius: 5px;
+    background: transparent;
+    color: white;
+    
+
+}
+
+h2{
+    color: white;
+    font-size: 20px;
+
+}
+
+
+.logoBug {
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.container-dado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    height: 900px;
+    background-size: cover ;
+    background-position: center;
+    background: url('/static/img/dadobanner.png') no-repeat center;   
+}
+
+
+.container-dado-imagen{
+    
+    justify-content: none;
+    align-items: center;
+    background: url('/static/img/dado-fondo.gif') no-repeat center;   
+    width: 900px;
+    height: 500px;
+    margin-top: 1px;
+    margin-left: 323px;
+}
+
+.container-dado-imagen h2{
+    color: #ffffff;
+    font-size: 140px;
+    text-align: center;
+    margin-top: 40%;
+    margin-left: 15%;
+    text-shadow: 10px 10px 10px #000000;
+  
+
+}
+
+.container-dado-imagen button{
+    width: 200px;
+    height: 50px;
+    background: #0f0f0f;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color:#FFD700;
+    font-weight: 600;
+    margin-left: 35%;
+    margin-top: 10%;
+    
+}
+
+.dado-form{
+    display: flex;
+    margin-left: 60%;
+    border: 2px solid rgba(255, 0, 0, 0.5);
+    color: #FFD700;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}

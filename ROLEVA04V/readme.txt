@@ -1,0 +1,1 @@
+favor de instalar axios con el comando npm install axios para que arroje el error de localhost

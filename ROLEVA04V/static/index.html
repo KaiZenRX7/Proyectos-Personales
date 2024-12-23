@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <link rel="icon" href="img/Default_En_el_centro_de_la_portada_un_enmascarado_vestido_de_n_0.jpg" type="image/x-icon">
+    <title>Juanito muy muy lejano</title>
+</head>
+<body>
+    <div class="panel-transparente" id="app">
+        <div class="container-tit">
+            <h1 class="display-4 text-primary">{{nombrejuego}}</h1>
+            <button>Pase de temporada</button>
+            <button>Noticias</button>
+            <button>Comunidad</button>
+            <button>Soporte</button>
+        </div> 
+        <div class="container text-center my-5">
+            <div class="my-4">
+                <h2 class="sub-banner">{{subtitulobanner}}</h2>
+                <div class="contenido-imagen">
+                    <div v-for="boton in botones" :key="boton.texto">
+                        <button :class="boton.clase" @click="boton.accion === 'conocer' ? mostrarModal() : registrarClick(boton.accion)">{{ boton.texto }}</button> 
+                    </div>
+                </div>    
+            </div>
+
+            <div class="my-5">
+                <div class="fondo-sub">
+                    <h2 class="text-primary">Resumen de Actividad</h2>
+                </div>
+                <ul class="list-group">
+                    <li v-for="metrica in metricas" :key="metrica" class="list-group-item metricas-tabla">{{metrica}}</li>
+                </ul>
+            </div>
+            <div class="my-5">
+                <h2 class="text-primary">Características</h2>
+                <ul class="list-group">
+                    <li v-for="caracteristica in caracteristicas" :key="caracteristica" class="list-group-item caracteristicas-tabla">{{caracteristica}}</li>
+                </ul>
+            </div>
+            <div class="my-5">
+                <h2 class="text-primary">¿A qué esperas? Miles de jugadores ya están en línea</h2>
+                <div class="calltoaction-dis" v-for="botoncalltoaction in botoncalltoaction" :key="botoncalltoaction.texto">
+                    <button :class="botoncalltoaction.clase" @click="registrarClick(botoncalltoaction.accion)">{{botoncalltoaction.texto}}</button>
+                </div>
+            </div>
+            <div class="my-5">
+                <h2 class="text-primary">Requisitos del sistema</h2>
+                <ul class="list-group">
+                    <li v-for="requisitos in requisitos" :key="requisitos" class="list-group-item requisitos-tabla">{{requisitos}}</li>
+                </ul>
+            </div>
+            <div class="pie-pag">
+                <div class="mapa-sitio">
+                  <ul>
+                    <p><strong><a href="index.html">HOME</a></strong></p>
+                    <p><strong><a href="#">TIENDA</a></strong></p>
+                    <p><strong><a href="#">NOTICIAS</a></strong></p>
+                    <p><strong><a href="#">SOPORTE</a></strong></p>
+                    <p><a href="#">POLITICA DE PRIVACIDAD</a></p>
+                    <p><a href="#">TERMINOS DE USO</a></p>
+                    <p><a href="#">INFORMACION LEGAL</a></p>
+                    <p><a href="#">CONFIGURAR COOKIES</a></p>
+                  </ul>
+                </div>
+                <footer>
+                    <div class="redes-copy">
+                        <ul>
+                            <li style="list-style-type: none;">
+                                <p>Siguenos en nuestras redes sociales</p>
+                                <button><a href="https://www.instagram.com/"><i class='bx bxl-instagram'></i></a></button>
+                                <button><a href="https://www.reddit.com/"><i class='bx bxl-reddit'></i></a></button>
+                                <button><a href="https://discord.com/"><i class='bx bxl-discord-alt'></i></a></button>
+                            </li>
+                        </ul>
+                        <img src="img/titulo-portada.jpg" alt="Portada Titulo videojuego" title="Portada-Titulo">
+                        <div class="text-copy">
+                            <p>Desarrollado por Kai Games Entertainment</p>
+                            <img src="img/KaiGamesEntertaiment-logo.jpg" alt="Imagen logo empresa" title="Logo de empresa">
+                            <p>© 2024 Juanito en una galaxia muy muy lejana. Todos los derechos reservados. Para mas informacion contactanos  <a href="https://mail.google.com/">galaxiamuymuylejana@gmail.com </a></p>
+                        </div>
+                       
+                    </div>
+                </footer>
+            </div>    
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalConoceMas" tabindex="-1" aria-labelledby="modalConoceMasLabel" aria-hidden="true" id="app">
+        <div class="modal-dialog">
+            <div class="modal-content banner-boot">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalConoceMasLabel">La Galaxia te espera...</h5>
+                    <img src="img/KaiGamesEntertaiment-logo.jpg" alt="Logo empresa" title="Logo Empresa Kai Games Entertainment">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body mt-4 texto-banner">
+                    <p><strong>Instalaciones Kai Games Entertainment informa</strong></p>
+                    <p>'La Galaxia ha estado en constantes guerras y caos, ahora que existe la paz tendras que convertirte en una leyenda pero antes debes decidir qué camino recorrerás. ¿Serás un Sith Lord? ¿Un Jedi? ¿Piloto de aviones para la república? ¿Crearás droides? ¿Serás un cazarrecompensas? Tú eliges a qué te dedicas y qué te llevará a la gloria.'</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.20/dist/vue.global.prod.js"></script>
+    <script src="https://unpkg.com/vuex@4"></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Se solicito crear un sistema con 3 modulos, Registrar ventas, Historial de ventas y Metricas de venta, donde habia que almacenar todas las ventas con un ID en el localstorage
+mostrar el historial con datos acotados de la venta los cuales se podian modificar y eliminar, enlas metricas de venta debian mostrarse las Ventas totales y ganancias totales del dia, asi como las ventas totales y ganancias globales
+
+
+

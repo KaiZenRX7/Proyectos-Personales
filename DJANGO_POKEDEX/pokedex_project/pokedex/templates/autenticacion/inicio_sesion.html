@@ -1,0 +1,75 @@
+{% extends 'autenticacion/base_auth.html' %}
+
+{% block title %}Inicio de Sesión{% endblock %}
+
+{% block content %}
+<h3 class="text-center mb-4">Inicia Sesión</h3>
+<form method="post" action="{% url 'inicio_sesion' %}">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="username" class="form-label">Nombre Entrenador</label>
+    <input type="text" name="username" id="username" class="form-control" placeholder="Ingresa Nombre de Entrenador" required>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña</label>
+    <input type="password" name="password" id="password" class="form-control" placeholder="Ingresa Contraseña" required>
+  </div>
+  <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+</form>
+
+<div class="mt-4 text-center">
+  <p>¿No tienes una cuenta? <a href="{% url 'registro' %}" class="text-success">Regístrate aquí</a></p>
+</div>
+
+{% if error_message %}
+<script>
+  Swal.fire({
+    icon: 'error',
+    title: 'Error',
+    text: '{{ error_message }}'
+  });
+</script>
+{% endif %}
+
+{% if request.GET.success %}
+<script>
+  Swal.fire({
+    icon: 'success',
+    title: '¡Registro Exitoso!',
+    text: 'Bienvenido a la Pokedex de Kai, ¡Inicia Sesion para poder capturar Pokémons!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "{% url 'inicio_sesion' %}";
+    }
+  });
+</script>
+{% endif %}
+
+{% if request.GET.login_success %}
+<script>
+  Swal.fire({
+    icon: 'success',
+    title: '¡Bienvenido de nuevo! {{ request.user.username }}',
+    text: 'Has iniciado sesión correctamente.'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "{% url 'buscar_pokemon' %}";
+    }
+  });
+</script>
+{% endif %}
+
+{% if request.GET.logout_success %}
+<script>
+  Swal.fire({
+    icon: 'success',
+    title: '¡Hasta luego! {{ request.GET.username }}',
+    text: 'Has cerrado sesión correctamente.'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "{% url 'inicio_sesion' %}";
+    }
+  });
+</script>
+{% endif %}
+{% endblock %}

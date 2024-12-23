@@ -1,0 +1,12 @@
+{% extends 'pokedex/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Crear Entrenador</h1>
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Crear Entrenador</button>
+    </form>
+</div>
+{% endblock %}

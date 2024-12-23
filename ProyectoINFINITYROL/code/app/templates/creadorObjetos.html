@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}  <!-- Aquí se extiende el archivo layout.html -->
+{% block title %}Creador de Objeto{% endblock %}
+
+
+{% block content%} 
+    <div class="container">
+        <div class="row">
+            <div>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del objeto">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="radio" class="btn-check" name="options" id="raza" autocomplete="off" checked>
+                        <label class="btn btn-secondary" for="raza">Raza</label>
+                        <input type="radio" class="btn-check" name="options" id="profesion" autocomplete="off">
+                        <label class="btn btn-secondary" for="profesion">Profesión</label>
+                        <input type="radio" class="btn-check" name="options" id="poder" autocomplete="off">
+                        <label class="btn btn-secondary" for="poder">Poder</label>
+                        <input type="radio" class="btn-check" name="options" id="habilidad" autocomplete="off">
+                        <label class="btn btn-secondary" for="habilidad">Habilidad</label>
+                        <input type="radio" class="btn-check" name="options" id="arma" autocomplete="off">
+                        <label class="btn btn-secondary" for="arma">Arma</label>
+                        <input type="radio" class="btn-check" name="options" id="armadura" autocomplete="off">
+                        <label class="btn btn-secondary" for="armadura">Armadura</label>
+                        <input type="radio" class="btn-check" name="options" id="otros" autocomplete="off">
+                        <label class="btn btn-secondary" for="otros">Otros</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>                
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}      <!-- Aquí se cierra el bloque  -->

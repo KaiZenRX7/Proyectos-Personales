@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="cssdesafio.css">
+    <title>Inventario Ventas Juanito</title>
+</head>
+<body>
+   <div class="app-cont" id="app">
+    <h1 class="titulo-bod">Menu Bodega</h1>
+    <div>
+        <button @click="menu" class="btn-cont">Stock</button>
+        <button @click="inventario" class="btn-cont">Inventario</button>
+        <button @click="mostrarProductos" class="btn-cont">Productos</button>
+        <button @click="mostrarPedidos" class="btn-cont">Pedidos</button>
+        <button class='btn-cont' @click="usuario">Admin
+        <i class="bx bxs-invader"></i>
+        </button>
+    </div>
+    <div v-if="currentView === 'menu'" class="info-prod">
+        <h2>Productos con menos stock</h2>
+        <ul>
+            <li v-for="producto in productosMenosStock" :key="producto.id">{{ producto.nombre }}: [{{ producto.stock }}]</li>
+        </ul>
+        <div class="info-prod">
+            <h2>Ultimos pedidos</h2>
+            <ul>
+                <li v-for="pedido in ultimosPedidos" :key="pedido.id">{{ pedido.detalles }}</li>
+            </ul>
+        </div> 
+    </div>
+    <div v-if="currentView === 'inventario'" class="inventario-cont">
+        <h2>Inventario</h2>
+        <ul>
+            <li v-for="producto in productos" :key="producto.id">{{ producto.nombre }}: [{{ producto.stock }}]</li>
+        </ul>
+        <!-- Formulario para agregar nuevo producto -->
+        <form @submit.prevent="agregarProducto">
+            <h3>Agregar Productos</h3>
+            <ul>
+                <li>
+                    <input v-model="nuevoProducto.nombre" placeholder="Nombre Producto" required>
+                </li>
+                <li>
+                    <input v-model.number="nuevoProducto.stock" placeholder="Cantidad" required>
+                </li>
+                <li>
+                    <select v-model="nuevoProducto.disponible" class="select-place" required>
+                        <option value="" disabled selected hidden>Disponible</option>
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </li>
+                <li>
+                    <input v-model="nuevoProducto.categoria" placeholder="Categoría" required>
+                </li>
+                <li>
+                    <button type="submit" class="btn-cont">Añadir Producto</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div v-if="currentView === 'productos'" class="vista-prod">
+        <h2>Detalles del producto</h2>
+        <ul>
+            <li v-for="producto in productos" :key="producto.id">
+                <strong>Nombre:</strong> {{ producto.nombre }}<br>
+                <strong>SKU:</strong> {{ producto.sku }}<br>
+                <strong>Cantidad:</strong> {{ producto.stock }}<br>
+                <strong>Disponible:</strong> {{ producto.disponible ? 'Sí' : 'No' }}<br>
+                <strong>Categoría:</strong> {{ producto.categoria }}<br>
+            </li>
+        </ul>
+    </div>
+    <div v-if="currentView === 'pedidos'" class="info-prod">
+        <h2>Pedidos</h2>
+        <form @submit.prevent="agregarPedido">
+            <ul>
+                <li><input v-model="nuevoPedido" placeholder="Detalles del pedido"></li>
+                <li><button type="submit" class="btn-cont">Agregar Pedido</button></li>
+            </ul>
+        </form>
+        <ul>
+            <li v-for="pedido in pedidos" :key="pedido.id">{{ pedido.detalles }}</li>
+        </ul>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2.20/dist/vue.global.prod.js"></script>
+<script src="https://unpkg.com/vuex@4"></script>
+<script src="script.js" defer></script>
+</body>
+</html>

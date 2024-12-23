@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}  <!-- Aquí se extiende el archivo layout.html -->
+{% block title %}Historial de Objeto{% endblock %}
+{% block content%} 
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Historial de objetos</h2>
+                <p>Aqui podras ver desde habilidades hasta armaduras</p>
+            </div>
+        </div>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for objeto in objetos %}
+                        <tr>
+                            <td>{{ objeto.nombre }}</td>
+                            <td>{{ objeto.tipo }}</td>
+                            <td>{{ objeto.descripcion }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-secondary">Eliminar Todo</button>
+
+        </div>
+
+
+{% endblock %}      <!-- Aquí se cierra el bloque  -->

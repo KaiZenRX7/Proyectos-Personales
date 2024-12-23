@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}  <!-- Aquí se extiende el archivo layout.html -->
+{% block title %}Dados{% endblock %}
+{% block body %}  <!-- Aquí se carga el contenido de la página de inicio, usando el bloque body -->
+
+{% endblock %}      <!-- Aquí se cierra el bloque  -->
+
+{% block content %}  <!-- Aquí se carga el contenido de la página de inicio, usando el bloque content -->
+<div class="container-dado">
+   
+    <div class="container-dado-imagen">
+        <h2 id="resultado"></h2>
+        <button type="button" onclick="lanzarDado()">Lanzar</button>**
+    </div>
+    <form id="formulario" action="">
+        <div class="form-group form-check dado-form">
+            <input type="radio" class="btn-check" name="options" id="dado6" autocomplete="off" checked>
+            <label class="btn btn-secondary" for="dado6">Dado de 6 caras</label>
+            <input type="radio" class="btn-check" name="options" id="dado10" autocomplete="off">
+            <label class="btn btn-secondary" for="dado10">Dado de 10 caras</label>
+            <input type="radio" class="btn-check" name="options" id="dado12" autocomplete="off">
+            <label class="btn btn-secondary" for="dado12">Dado de 12 caras</label>
+            <input type="radio" class="btn-check" name="options" id="dado24" autocomplete="off">
+            <label class="btn btn-secondary" for="dado24">Dado de 24 caras</label>                
+        </div>
+
+    </form>
+</div>
+{% endblock %}      <!-- Aquí se cierra el bloque  -->
+

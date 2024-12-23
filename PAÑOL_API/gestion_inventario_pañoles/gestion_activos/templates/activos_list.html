@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Activos</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/">
+                                Admin
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/api/">
+                                API
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/swagger/">
+                                Swagger
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/redoc/">
+                                Redoc
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/activos/">
+                                Lista de Activos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 main-content">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Lista de Activos</h1>
+                </div>
+                {% if activos %}
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Activo</th>
+                            <th>Cantidad Disponible</th>
+                            <th>Fecha de Ingreso</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for activo in activos %}
+                        <tr>
+                            <td>{{ activo.id }}</td>
+                            <td>{{ activo.nombre_activo }}</td>
+                            <td>{{ activo.cantidad_disponible }}</td>
+                            <td>{{ activo.fecha_ingreso|date:"d/m/Y H:i:s" }}</td>
+                            <td>{{ activo.estado }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <div class="alert alert-info mt-3" role="alert">
+                    No hay activos registrados actualmente.
+                </div>
+                <div class="mt-3">
+                    <h5>Cómo enviar activos desde Postman:</h5>
+                    <p>Para enviar un nuevo activo, sigue estos pasos:</p>
+                    <ol>
+                        <li>Abre Postman y crea una nueva solicitud.</li>
+                        <li>Selecciona el método <strong>POST</strong>.</li>
+                        <li>Ingresa la URL: <code>http://127.0.0.1:8000/api/activos/</code></li>
+                        <li>Ve a la pestaña <strong>Headers</strong> y añade un nuevo encabezado:
+                            <ul>
+                                <li><strong>Key:</strong> Authorization</li>
+                                <li><strong>Value:</strong> Bearer <em>your_access_token</em></li>
+                            </ul>
+                        </li>
+                        <li>Ve a la pestaña <strong>Body</strong>, selecciona <strong>raw</strong> y luego <strong>JSON</strong> (application/json).</li>
+                        <li>Ingresa el JSON con los datos del nuevo activo, por ejemplo:
+                            <pre>
+                                {
+                                    "nombre_activo": "Nuevo Activo",
+                                    "cantidad_disponible": 5,
+                                    "estado": "activo"
+                                }
+                            </pre>
+                        </li>
+                        <li>Haz clic en el botón <strong>Send</strong> y revisa la respuesta.</li>
+                    </ol>
+                </div>
+                {% endif %}
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+# API RESTful para Gestión de Inventario de Pañoles
+
+El propósito del sistema es facilitar el control del inventario de insumos y activos utilizados en los pañoles de la institución.
+
+## Usuarios Base
+
+- **Admin**
+  - Username: `Admin`
+  - Password: `admin321`
+- **Usuario**
+  - Username: `German`
+  - Password: `pañol123`
+
+## Rutas
+
+### Autenticación
+
+- **Obtener Token**
+  - **URL:** `/api/auth/token/`
+  - **Método:** `POST`
+  - **Cuerpo de la solicitud:**
+    ```json
+    {
+      "username": "Admin",
+      "password": "admin321"
+    }
+    ```
+  - **Respuesta exitosa:**
+    ```json
+    {
+      "access": "access_token",
+      "refresh": "refresh_token"
+    }
+    ```
+
+- **Refrescar Token**
+  - **URL:** `/api/auth/token/refresh/`
+  - **Método:** `POST`
+  - **Cuerpo de la solicitud:**
+    ```json
+    {
+      "refresh": "refresh_token"
+    }
+    ```
+  - **Respuesta exitosa:**
+    ```json
+    {
+      "access": "new_access_token"
+    }
+    ```
+
+### Gestión de Activos
+
+- **Listar Activos**
+  - **URL:** `/api/activos/`
+  - **Método:** `GET`
+  - **Respuesta exitosa:**
+    ```json
+    [
+      {
+        "id": 1,
+        "nombre_activo": "Activo 1",
+        "cantidad_disponible": 10,
+        "fecha_ingreso": "2023-10-01T12:00:00Z",
+        "estado": "activo"
+      },
+      ...
+    ]
+    ```
+
+- **Crear Activo**
+  - **URL:** `/api/activos/`
+  - **Método:** `POST`
+  - **Cuerpo de la solicitud:**
+    ```json
+    {
+      "nombre_activo": "Nuevo Activo",
+      "cantidad_disponible": 5,
+      "estado": "activo"
+    }
+    ```
+  - **Respuesta exitosa:**
+    ```json
+    {
+      "id": 2,
+      "nombre_activo": "Nuevo Activo",
+      "cantidad_disponible": 5,
+      "fecha_ingreso": "2023-10-01T12:00:00Z",
+      "estado": "activo"
+    }
+    ```
+
+- **Actualizar Activo**
+  - **URL:** `/api/activos/id/`
+  - **Método:** `PUT`
+  - **Cuerpo de la solicitud:**
+    ```json
+    {
+      "nombre_activo": "Activo Actualizado",
+      "cantidad_disponible": 10,
+      "estado": "activo"
+    }
+    ```
+  - **Respuesta exitosa:**
+    ```json
+    {
+      "id": 1,
+      "nombre_activo": "Activo Actualizado",
+      "cantidad_disponible": 10,
+      "fecha_ingreso": "2023-10-01T12:00:00Z",
+      "estado": "activo"
+    }
+    ```
+
+- **Eliminar Activo**
+  - **URL:** `/api/activos/id/`
+  - **Método:** `DELETE`
+  - **Respuesta exitosa:** `204 No Content`
+
+## Documentación
+
+- **Swagger UI:** `/swagger/`
+- **ReDoc:** `/redoc/`
+
+## Base de Datos
+
+- **Base de Datos:** SQLite (configurada en `settings.py`)
+
+## Seguridad
+
+- **Autenticación:** JWT (configurada en `settings.py`)
+- **Contraseñas:** bcrypt (configuradas en `settings.py`)
+
+## Formato de Respuesta
+
+- **Formato:** JSON
+
+## Manejo de Errores
+
+- **Archivo:** `http_errors.py`
+- **Descripción:** Contiene los códigos de error HTTP más importantes y sus mensajes personalizados.
+- **Uso:** Importar y utilizar la función `handle_http_error` en las vistas para manejar los errores HTTP de manera personalizada.
+
+## Ideas Innovadoras
+
+- Uso de Django REST Framework para la creación de la API.
+- Implementación de JWT para la autenticación.
+- Documentación automática con Swagger y ReDoc.
+- Crear una interfaz intuitiva para el usuario.
+- Filtros y Búsquedas avanzadas.
+- Manejar grandes volúmenes de datos implementando paginación.
+- Exportación de los datos (excel por ejemplo).
+- Desplegarla en la nube.
+- Manejo de errores personalizados
+
+
+
+## Requerimientos
+
+- Django==3.2  # pip install Django==3.2
+- djangorestframework==3.12.4   **pip install djangorestframework==3.12.4**
+- djangorestframework-simplejwt==4.7.2   **pip installdjangorestframework-simplejwt==4.7.2**
+- drf-yasg==1.20.0   **pip install drf-yasg==1.20.0**
+- bcrypt==3.2.0   **pip install bcrypt==3.2.0**
