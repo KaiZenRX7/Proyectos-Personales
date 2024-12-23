@@ -1,0 +1,66 @@
+{% extends 'pokedex/base.html' %}
+
+{% block content %}
+<div class="container py-4 d-flex flex-wrap justify-content-center align-items-start">
+    <!-- Imagen, Número y Nombre del Pokémon -->
+    <div class="pokemon-image text-center mb-4">
+        <h1 class="pokemon-number mt-3">#{{ pokemon.numero }}</h1>
+        <h2 class="pokemon-name">{{ pokemon.nombre }}</h2>
+        <img src="{{ pokemon.imagen }}" alt="{{ pokemon.nombre }}" class="img-fluid rounded" style="max-width: 300px;">
+    </div>
+
+    <!-- Detalles del Pokémon -->
+    <div class="pokemon-details ms-4 mt-3">
+        <div>
+            {% for tipo in pokemon.tipo %}
+            <span class="badge badge-tipo-{{ tipo|lower }} fs-5">
+                {{ tipo }}
+            </span>
+            {% endfor %}
+        </div>
+        <div class="mt-3">
+            <p><strong>Altura:</strong> {{ pokemon.altura }} m</p>
+            <p><strong>Peso:</strong> {{ pokemon.peso }} kg</p>
+        </div>
+        <div class="mt-3">
+            <h3 class="text-primary">Estadísticas</h3>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>HP</span><span>{{ pokemon.hp }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Ataque</span><span>{{ pokemon.ataque }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Defensa</span><span>{{ pokemon.defensa }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Ataque Especial</span><span>{{ pokemon.ataque_especial }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Defensa Especial</span><span>{{ pokemon.defensa_especial }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Velocidad</span><span>{{ pokemon.velocidad }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="mt-3">
+            <h4>Habilidades</h4>
+            <ul>
+                {% for habilidad, is_hidden in pokemon.habilidades.items %}
+                <li>{{ habilidad }}{% if is_hidden %} (Oculta){% endif %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="mt-3">
+            <h4>Descripción:</h4>
+            <p>{{ pokemon.descripcion }}</p>
+        </div>
+        <div class="mt-3">
+            <h4>Evoluciones:</h4>
+            <p>{{ pokemon.evolucion }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

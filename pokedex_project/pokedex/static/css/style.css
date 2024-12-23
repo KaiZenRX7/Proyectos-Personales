@@ -1,0 +1,358 @@
+@font-face {
+  font-family: 'PokemonSolid';
+  src: url('/static/fonts/Pokemon Solid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, .pokemon-title {
+  font-family: 'PokemonSolid', sans-serif;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke: thin rgb(255, 255, 255);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+html, body {
+  background-color: #f4f4f4; /* Fondo claro por defecto */
+  color: #333;
+  height: 100%; /* Asegúrate de que el body ocupe toda la altura de la ventana */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Permite que el main ocupe el espacio disponible */
+  display: flex;
+  flex-direction: column;
+}
+
+main .container {
+  position: relative;
+  flex: 1;
+}
+
+/* El footer queda fijo en la parte inferior */
+footer.footer {
+  background: #7b7b7b;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+.text-muted{
+  color: #fff;
+}
+
+/* Estilos específicos para SweetAlert */
+.swal2-popup {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-title {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-content {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-confirm {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-cancel {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.btn-primary {
+  background-color: #FFCB05; /* Amarillo Pokémon */
+  color: #3C5AA6; /* Azul Pokémon para el texto */
+  border: 2px solid #3C5AA6;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #F7B500; /* Amarillo más oscuro al pasar el cursor */
+  color: #FFFFFF; /* Texto blanco para contraste */
+  border-color: #3C5AA6;
+}
+
+/* Botón secundario */
+.btn-secondary {
+  background-color: #3C5AA6; /* Azul Pokémon */
+  color: #FFFFFF;
+  border: 2px solid #FFCB05;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #2E4A84; /* Azul más oscuro */
+  border-color: #FFCB05; /* Mantén el contraste */
+}
+
+/* Botón de advertencia */
+.btn-danger {
+  background-color: #FF1C1C; /* Rojo Pokébola */
+  color: #FFFFFF;
+  border: 2px solid #B00000;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #D10000; /* Rojo más oscuro */
+  border-color: #FF1C1C;
+}
+
+/* Botón deshabilitado */
+.btn-disabled {
+  background-color: #A5A5A5; /* Gris */
+  color: #FFFFFF;
+  border: 2px solid #999999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-success {
+  background-color: #78C850; /* Verde Hoja */
+  color: #FFFFFF; /* Texto blanco */
+  border: 2px solid #4A7F27; /* Verde más oscuro */
+  font-weight: bold;
+  text-transform: uppercase; /* Letras en mayúsculas */
+  transition: all 0.3s ease;
+}
+
+/* Hover (Efecto al pasar el cursor) */
+.btn-success:hover {
+  background-color: #66B042; /* Verde más oscuro */
+  border-color: #3A6A1D; /* Verde aún más oscuro */
+  color: #FFFFFF; /* Mantén el contraste */
+}
+
+/* Botón deshabilitado */
+.btn-success:disabled {
+  background-color: #A5D6A7; /* Verde claro para botones deshabilitados */
+  color: #E8F5E9; /* Texto más tenue */
+  border-color: #A5D6A7;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Botón Info - Azul Claro */
+.btn-info {
+  background-color: #3C9BED; /* Azul Claro */
+  color: #FFFFFF; /* Texto blanco */
+  border: 2px solid #2E77BA; /* Azul más oscuro */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.btn-info:hover {
+  background-color: #2E77BA; /* Azul más oscuro */
+  border-color: #1F5A91; /* Borde más oscuro */
+  color: #FFFFFF;
+}
+
+/* Botón deshabilitado */
+.btn-info:disabled {
+  background-color: #B3D4FC; /* Azul pálido */
+  color: #E3F2FD; /* Texto tenue */
+  border-color: #B3D4FC;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Botón Warning - Naranja Fuego */
+.btn-warning {
+  background-color: #F58216; /* Naranja Fuego */
+  color: #FFFFFF; /* Texto blanco */
+  border: 2px solid #B3540D; /* Naranja más oscuro */
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.btn-warning:hover {
+  background-color: #D96B0F; /* Naranja más intenso */
+  border-color: #933C0A; /* Borde más oscuro */
+  color: #FFFFFF;
+}
+
+/* Botón deshabilitado */
+.btn-warning:disabled {
+  background-color: #FFD6A3; /* Naranja pálido */
+  color: #FFEBCD; /* Texto tenue */
+  border-color: #FFD6A3;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-success, .btn-info, .btn-warning {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+.btn-success:hover, .btn-info:hover, .btn-warning:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+
+
+.pokemon-image {
+  flex: 1;
+  max-width: 350px; /* Incrementamos el tamaño máximo de la imagen */
+  text-align: center;
+}
+
+.pokemon-image img {
+  max-width: 100%; /* Asegura que la imagen sea responsiva */
+  border-radius: 10px; /* Suavizamos las esquinas */
+}
+
+.pokemon-number {
+  font-size: 3rem; /* Hacemos más grande el número del Pokémon */
+  color: #4CAF50;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.pokemon-name {
+  font-size: 2.5rem; /* Incrementamos el tamaño del nombre */
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-top: -10px;
+}
+
+.pokemon-details {
+  flex: 1.5; /* Asignamos más espacio al bloque de detalles */
+  max-width: 500px; /* Hacemos el bloque de detalles más ancho */
+  font-size: 1.2rem; /* Aumentamos el tamaño del texto */
+}
+
+.pokemon-details h3 {
+  font-size: 1.8rem; /* Más grande para destacar las secciones */
+  margin-top: 1rem;
+  color: #007BFF; /* Cambiamos a azul para mejor contraste */
+}
+
+.pokemon-details ul {
+  padding: 0;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.list-group-item {
+  font-size: 1.1rem; /* Ajuste del tamaño de texto en estadísticas */
+  border: none; /* Eliminamos bordes para un diseño más limpio */
+  padding: 0.8rem 1rem;
+  background-color: #f9f9f9; /* Fondo más claro para separar del texto */
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  font-size: 1.2rem; /* Hacemos más visible el tipo del Pokémon */
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column; /* Apilamos los elementos verticalmente en pantallas pequeñas */
+  }
+
+  .pokemon-image,
+  .pokemon-details {
+      max-width: 100%; /* Usamos todo el ancho en dispositivos pequeños */
+  }
+  .btn{
+    width: auto;
+    
+  }
+}
+
+
+/* Tipos Pokémon y sus colores */
+.badge-tipo-fire { background-color: #F08030; color: white; }
+.badge-tipo-water { background-color: #6890F0; color: white; }
+.badge-tipo-plant { background-color: #78C850; color: white; }
+.badge-tipo-electric { background-color: #F8D030; color: black; }
+.badge-tipo-ice { background-color: #98D8D8; color: black; }
+.badge-tipo-fighting { background-color: #C03028; color: white; }
+.badge-tipo-poison { background-color: #A040A0; color: white; }
+.badge-tipo-ground { background-color: #E0C068; color: black; }
+.badge-tipo-flying { background-color: #A890F0; color: white; }
+.badge-tipo-psychic { background-color: #F85888; color: white; }
+.badge-tipo-grass { background-color: #A8B820; color: black; }
+.badge-tipo-rock { background-color: #B8A038; color: white; }
+.badge-tipo-ghost { background-color: #705898; color: white; }
+.badge-tipo-dragon { background-color: #7038F8; color: white; }
+.badge-tipo-dark { background-color: #705848; color: white; }
+.badge-tipo-steel { background-color: #B8B8D0; color: black; }
+.badge-tipo-fairy { background-color: #EE99AC; color: white; }
+
+/* Ajuste de badges */
+.badge {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.input-group .form-control {
+  border-right: 0;
+}
+
+.input-group .btn {
+  border-left: 0;
+}
+
+.boton-buscar-lista-pokemon {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #FFCB05; /* Amarillo Pokémon */
+  color: #3C5AA6; /* Azul Pokémon para el texto */
+  border: 2px solid #3C5AA6;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-radius: 0 5px 5px 0;
+  height: 37px;
+
+}
+  
+.boton-buscar-lista-pokemon:hover {
+    background-color: #F7B500; /* Amarillo más oscuro al pasar el cursor */
+    color: #FFFFFF; /* Texto blanco para contraste */
+    border-color: #3C5AA6;
+}
+  
+

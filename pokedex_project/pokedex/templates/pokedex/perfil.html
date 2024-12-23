@@ -1,0 +1,81 @@
+{% extends 'pokedex/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Mi Perfil</h1>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">Lider: {{ user.username }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Entrenadores:</h6>
+            <ul class="list-group list-group-flush">
+                {% for entrenador in entrenadores %}
+                <li class="list-group-item">
+                    <h5>{{ entrenador.nombre }}</h5>
+                    <p>Equipo: {{ entrenador.equipo }}</p>
+                    <p>Pokémones:</p>
+                    <ul class="list-group list-group-flush">
+                        {% for pokemon in entrenador.pokemons.all %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ pokemon.nombre }} - 
+                            {% for tipo in pokemon.tipo %}
+                            <span>{{ tipo|lower }}  </span>
+                            {% endfor %}
+                            <form method="post" action="{% url 'retirar_pokemon' pokemon.pk %}" class="d-inline" onsubmit="return confirmRetirar(event, '{{ pokemon.nombre }}')">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Retirar Pokémon</button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+  function confirmRetirar(event, pokemonName) {
+    event.preventDefault();
+    Swal.fire({
+      title: `¿Quieres retirar a ${pokemonName} del equipo?`,
+      text: "Esta acción no se puede deshacer.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, retirar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(event.target.action, {
+          method: 'POST',
+          body: new FormData(event.target),
+          headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            Swal.fire({
+              title: '¡Pokémon retirado!',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            event.target.closest('.list-group-item').remove();
+          } else {
+            Swal.fire({
+              title: '¡Error!',
+              text: 'Hubo un problema al retirar el Pokémon.',
+              icon: 'error'
+            });
+          }
+        });
+      }
+    });
+  
+
+  }
+</script>
+{% endblock %}

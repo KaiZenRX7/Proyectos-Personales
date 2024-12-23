@@ -1,0 +1,174 @@
+{% extends 'pokedex/base.html' %}
+{% load form_tags %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Actualizar Pokémon</h1>
+    <form id="update-form" method="post" enctype="multipart/form-data" class="mt-4" action="{% url 'editar_pokemon' pokemon.pk %}">
+        {% csrf_token %}
+        <!-- Nombre y Tipo -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.nombre.id_for_label }}" class="form-label">Nombre</label>
+                {{ form.nombre|addclass:"form-control" }}
+                {% if form.nombre.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.nombre.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.tipo.id_for_label }}" class="form-label">Tipo</label>
+                <small class="form-text text-muted">No se puede cambiar.</small>
+                {{ form.tipo|addclass:"form-control" }}
+                {% if form.tipo.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.tipo.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Habilidades y Descripción -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.habilidades.id_for_label }}" class="form-label">Habilidades</label>
+                {{ form.habilidades|addclass:"form-control" }}
+                <small class="form-text text-muted">Escribe cada habilidad en una nueva línea. Añade "(oculta)" para habilidades ocultas.</small>
+                {% if form.habilidades.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.habilidades.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.descripcion.id_for_label }}" class="form-label">Descripción</label>
+                {{ form.descripcion|addclass:"form-control" }}
+                {% if form.descripcion.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.descripcion.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Altura y Peso -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.altura.id_for_label }}" class="form-label">Altura en metros</label>
+                {{ form.altura|addclass:"form-control" }}
+                {% if form.altura.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.altura.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.peso.id_for_label }}" class="form-label">Peso en kilogramos</label>
+                {{ form.peso|addclass:"form-control" }}
+                {% if form.peso.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.peso.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Evolución e Imagen -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.evolucion.id_for_label }}" class="form-label">Evolución</label>
+                {{ form.evolucion|addclass:"form-control" }}
+                {% if form.evolucion.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.evolucion.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.imagen.id_for_label }}" class="form-label">Imagen</label>
+                {{ form.imagen|addclass:"form-control" }}
+                <img id="image-preview" src="#" alt="Vista previa de la imagen" style="display: none; margin-top: 10px; max-width: 100%;">
+                {% if form.imagen.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.imagen.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Estadísticas -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.hp.id_for_label }}" class="form-label">HP</label>
+                {{ form.hp|addclass:"form-control" }}
+                {% if form.hp.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.hp.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.ataque.id_for_label }}" class="form-label">Ataque</label>
+                {{ form.ataque|addclass:"form-control" }}
+                {% if form.ataque.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.ataque.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.defensa.id_for_label }}" class="form-label">Defensa</label>
+                {{ form.defensa|addclass:"form-control" }}
+                {% if form.defensa.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.defensa.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.ataque_especial.id_for_label }}" class="form-label">Ataque Especial</label>
+                {{ form.ataque_especial|addclass:"form-control" }}
+                {% if form.ataque_especial.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.ataque_especial.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.defensa_especial.id_for_label }}" class="form-label">Defensa Especial</label>
+                {{ form.defensa_especial|addclass:"form-control" }}
+                {% if form.defensa_especial.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.defensa_especial.errors }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.velocidad.id_for_label }}" class="form-label">Velocidad</label>
+                {{ form.velocidad|addclass:"form-control" }}
+                {% if form.velocidad.errors %}
+                    <div class="invalid-feedback d-block">
+                        {{ form.velocidad.errors }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Número -->
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.numero.id_for_label }}" class="form-label">Número</label>
+                <small class="form-text text-muted">No se puede cambiar.</small>
+                {{ form.numero|addclass:"form-control" }}
+            </div>
+        </div>
+
+        <div class="col-md-15 mb3 d-flex justify-content-center align-items-center">
+          <img src="{{ pokemon.imagen }}" alt="Imagen del Pokemon">
+        </div>
+        <button type="button" class="btn btn-primary" id="update-button">Guardar cambios</button>
+    </form>
+</div>
+
+{% endblock %}

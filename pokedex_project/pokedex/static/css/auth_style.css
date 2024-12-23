@@ -1,0 +1,225 @@
+/* Fondo temático */
+
+@font-face {
+  font-family: 'PokemonSolid';
+  src: url('/static/fonts/Pokemon Solid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, .pokemon-title {
+  font-family: 'PokemonSolid', sans-serif;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke: thin rgb(255, 255, 255);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+body{
+  background: url('/static/images/wallpaper_pika.jpg')no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.container{
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.auth-header{
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/* Encabezado */
+.auth-header img {
+  animation: spin 5s linear infinite;
+}
+
+.auth-header h1 {
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Tarjeta de contenido */
+.auth-card {
+  width: auto;
+  height: auto;
+
+}
+
+/* Footer */
+.auth-footer {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Animación Pokebola */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilos específicos para SweetAlert */
+.swal2-popup {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-title {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-content {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-confirm {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+.swal2-cancel {
+  font-family: 'Tahoma', sans-serif; 
+}
+
+
+.auth-content {
+  height: 100%; /* Asegúrate de que el contenedor ocupe toda la altura disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  max-width: 400px;
+  width: 100%;
+  background: linear-gradient(135deg, #FFCB05, #3C5AA6);
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px; /* Espaciado externo */
+}
+
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-card form .form-control {
+  margin-bottom: 15px;
+}
+
+.auth-card form button {
+  margin-top: 10px;
+}
+
+
+.btn-primary {
+  background-color: #FFCB05; /* Amarillo Pokémon */
+  color: #3C5AA6; /* Azul Pokémon para el texto */
+  border: 2px solid #3C5AA6;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #F7B500; /* Amarillo más oscuro al pasar el cursor */
+  color: #FFFFFF; /* Texto blanco para contraste */
+  border-color: #3C5AA6;
+}
+
+/* Botón secundario */
+.btn-secondary {
+  background-color: #3C5AA6; /* Azul Pokémon */
+  color: #FFFFFF;
+  border: 2px solid #FFCB05;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #2E4A84; /* Azul más oscuro */
+  border-color: #FFCB05; /* Mantén el contraste */
+}
+
+/* Botón de advertencia */
+.btn-danger {
+  background-color: #FF1C1C; /* Rojo Pokébola */
+  color: #FFFFFF;
+  border: 2px solid #B00000;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #D10000; /* Rojo más oscuro */
+  border-color: #FF1C1C;
+}
+
+/* Botón deshabilitado */
+.btn-disabled {
+  background-color: #A5A5A5; /* Gris */
+  color: #FFFFFF;
+  border: 2px solid #999999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btn-success{
+  background-color: #78C850; /* Verde Hoja */
+  color: #FFFFFF; /* Texto blanco */
+  border: 2px solid #4A7F27; /* Verde más oscuro */
+  font-weight: bold;
+  text-transform: uppercase; /* Letras en mayúsculas */
+  transition: all 0.3s ease;
+}
+
+/* Hover (Efecto al pasar el cursor) */
+.btn-success:hover {
+  background-color: #66B042; /* Verde más oscuro */
+  border-color: #3A6A1D; /* Verde aún más oscuro */
+  color: #FFFFFF; /* Mantén el contraste */
+}
+
+/* Botón deshabilitado */
+.btn-success:disabled {
+  background-color: #A5D6A7; /* Verde claro para botones deshabilitados */
+  color: #E8F5E9; /* Texto más tenue */
+  border-color: #A5D6A7;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.text-primary {
+  color: #3C5AA6; 
+  font-weight: bold; 
+  text-transform: uppercase; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+}
+
+.text-success {
+  color: #78C850;
+  font-weight: bold; 
+  text-transform: uppercase; 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+}

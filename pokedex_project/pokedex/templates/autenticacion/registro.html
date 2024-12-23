@@ -1,0 +1,66 @@
+{% extends 'autenticacion/base_auth.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mt-4 text-center">Registrarse</h1>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Nombre de Entrenador</label>
+      <input type="text" name="username" id="id_username" class="form-control" placeholder="Nombre de Entrenador" required>
+      <small class="form-text text-muted">Seras considerado el lider de tu equipo (Nombre no se puede cambiar luego de registrarse).</small>
+      {% if form.username.errors %}
+        <div class="invalid-feedback d-block">
+          {{ form.username.errors }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="mb-3">
+      <label for="id_password1" class="form-label">Contraseña</label>
+      <input type="password" name="password1" id="id_password1" class="form-control" placeholder="Contraseña" required>
+      <small class="form-text text-muted">La Contraseña debe ser de minimo 8 caracteres conteniendo solo letras o letras y numeros</small>
+      {% if form.password1.errors %}
+        <div class="invalid-feedback d-block">
+          {{ form.password1.errors }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="mb-3">
+      <label for="id_password2" class="form-label">Confirmar Contraseña</label>
+      <input type="password" name="password2" id="id_password2" class="form-control" placeholder="Confirmar Contraseña" required>
+      <small class="form-text text-muted">Debe coincidir con la contraseña ingresada anteriormente.</small>
+      {% if form.password2.errors %}
+        <div class="invalid-feedback d-block">
+          {{ form.password2.errors }}
+        </div>
+      {% endif %}
+    </div>
+    <div class="mb-3">
+      <label for="id_equipo" class="form-label">Equipo</label>
+      <input type="text" name="equipo" id="id_equipo" class="form-control" placeholder="Nombre del Equipo" required>
+      <small class="form-text text-muted">Nombre de tu equipo de entrenadores (Esto no se puede cambiar luego de registrarse).</small>
+      {% if form.equipo.errors %}
+        <div class="invalid-feedback d-block">
+          {{ form.equipo.errors }}
+        </div>
+      {% endif %}
+    </div>
+    <button type="submit" class="btn btn-success w-100">Registrarse</button>
+  </form>
+
+  <div class="mt-4 text-center">
+    <p>¿Ya tienes una cuenta? <a href="{% url 'inicio_sesion' %}" class="text-primary">Inicia sesión aquí</a></p>
+  </div>
+
+  {% if error %}
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: '{{ error }}'
+    });
+  </script>
+  {% endif %}
+</div>
+{% endblock %}
